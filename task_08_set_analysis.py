@@ -1,0 +1,22 @@
+materials_1 = {"Бетон", "Дерево", "Металл", "Стекло", "Цемент"}
+materials_2 = {"Песок", "Пластик", "Стекло", "Цемент", "Шифер"}
+materials_3 = {"Газобетон", "Гипс", "Кирпич", "Цемент", "Шифер"}
+print("Подрядчик 1:", materials_1)
+print("Подрядчик 2:", materials_2)
+print("Подрядчик 3:", materials_3)
+print()
+
+all_unique = materials_1 | materials_2 | materials_3 
+print("Список уникальных материалов у всех подрядчиков:", all_unique)
+print()
+
+same_materials = materials_1 & materials_2 & materials_3
+print("Список материалов, которые есть у каждого подрядчика:", same_materials)
+print()
+
+only_in_1 = materials_1 - materials_2 - materials_3
+print("Список материалов, которые есть только у 1 подрядчика:", only_in_1)
+print()
+
+only_in_2_and_3 = materials_2 & materials_3 - materials_1
+print("Список материалов, которые есть только у 2 и 3 подрядчиков:", only_in_2_and_3)

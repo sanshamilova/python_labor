@@ -38,3 +38,10 @@ season_names = {1: 'Зима', 2: 'Весна', 3: 'Лето', 4: 'Осень'}
 for season_num, count in high_rides['season'].value_counts().sort_index().items():
     print(f"  {season_names[season_num]}: {count} наблюдений")
 
+df_1['month'] = df_1['datetime'].dt.month
+result = df_1.groupby('month').agg(
+    avg_temp=('temp', 'mean'),
+    avg_count=('count', 'mean')
+).round(2).reset_index()
+result.to_csv('средняя_температура_и_поездки_по_месяцам.csv', index=False)
+print(result)

@@ -30,3 +30,11 @@ plt.title("Зависимость числа поездок от сезона")
 plt.xlabel("Время года")
 plt.ylabel("Число поездок")
 plt.show()
+
+high_rides = df_1[df_1['count'] > 500]
+print(f"Количество наблюдений с поездками > 500: {len(high_rides)}")
+print("\nРаспределение по сезонам:")
+season_names = {1: 'Зима', 2: 'Весна', 3: 'Лето', 4: 'Осень'}
+for season_num, count in high_rides['season'].value_counts().sort_index().items():
+    print(f"  {season_names[season_num]}: {count} наблюдений")
+

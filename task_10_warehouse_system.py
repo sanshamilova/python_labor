@@ -51,3 +51,15 @@ for material, info in warehouse.items():
         materials_in_danger = materials_in_danger
 print("Критических остатков всего: ", materials_in_danger)
 print("=" * 75)
+
+material_name = "Арматура"
+amount = 5
+
+if material_name in warehouse:
+    current = warehouse[material_name]["quantity"]
+    if amount <= current:
+        warehouse[material_name]["quantity"] = current - amount
+        print(f"Выдано {amount} единиц '{material_name}'")
+        print(f"Остаток: {warehouse[material_name]['quantity']}")
+    else:
+        print(f"'{material_name}' на складе недостаточно. Доступно: {current}, а запрошено: {amount}")
